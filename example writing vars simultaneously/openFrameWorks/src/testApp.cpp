@@ -24,8 +24,8 @@ void testApp::onNewMessage(string & message)
 
 void testApp::update()
 {
-	if(sendMessage)
-	{
+	//if(sendMessage)
+	//{
 	   string message = "";
 		message += (key1Down)? "a" : "x";
 		message += (key2Down)? "?" : "x";
@@ -34,7 +34,7 @@ void testApp::update()
 		cout << "sending message: " << message << "\n"; 
 		serial.writeString(message);
 		sendMessage = false;
-	}
+	//}
 }
 
 //--------------------------------------------------------------
@@ -74,8 +74,8 @@ void testApp::keyReleased(int key)
 		case 51: // 3
 			key3Down = false;
 			break;
-		case 32: // space
-			sendMessage = true;
-			break;
+		//case 32: // space
+		//	sendMessage = true;
+		//	break;
 	}
 }

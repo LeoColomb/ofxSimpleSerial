@@ -14,7 +14,7 @@ class testApp : public ofBaseApp{
 		bool		key1Down;
 		bool		key2Down;
 		bool		key3Down;
-		bool		sendMessage;
+		//bool		sendMessage;
 
 		void		setup();
 		void		update();
