@@ -10,9 +10,10 @@ ofxSimpleSerial::ofxSimpleSerial()
 
 /*
  * Make ofxSimpleSerial listenen continuesly for new messages.
- * @param	writeByte		Should I do a writeByte('r') to request new messages? (true is default)
+ * @param	writeByte		Should I do a writeByte('r') to request new messages? (true is default). 
+ *							Disable this when you want to send your own messages.
  */
-void ofxSimpleSerial::startContinuesRead(bool writeByte = true)
+void ofxSimpleSerial::startContinuesRead(bool writeByte)
 {
 	continuesRead = true;
 	bWriteByte = writeByte;

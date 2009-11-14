@@ -16,7 +16,7 @@ class ofxSimpleSerial : public ofSerial{
 	
 		ofxSimpleSerial();
 		void		sendRequest();
-		void		startContinuesRead(bool writeByte);
+		void		startContinuesRead(bool writeByte = true);
 		void		stopContinuesRead();
 		void		writeString(string message);
 	
