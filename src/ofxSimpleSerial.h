@@ -16,8 +16,9 @@ class ofxSimpleSerial : public ofSerial{
 	
 		ofxSimpleSerial();
 		void		sendRequest();
-		void		startContinuesRead();
+		void		startContinuesRead(bool writeByte);
 		void		stopContinuesRead();
+		void		writeString(string message);
 	
 		ofEvent< string > NEW_MESSAGE;
 	
@@ -26,7 +27,7 @@ class ofxSimpleSerial : public ofSerial{
 		string		messageBuffer;
 		unsigned char bytesReturned[NUM_BYTES];	
 		bool		continuesRead;
-	
+	bool		bWriteByte;
 		void		initSetup();
 		void		update(ofEventArgs & args);
 		void		read();

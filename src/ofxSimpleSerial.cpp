@@ -5,11 +5,17 @@ ofxSimpleSerial::ofxSimpleSerial()
 	message = "";
 	messageBuffer = "";
 	continuesRead = false;
+	bWriteByte = true;
 }
 
-void ofxSimpleSerial::startContinuesRead()
+/*
+ * Make ofxSimpleSerial listenen continuesly for new messages.
+ * @param	writeByte		Should I do a writeByte('r') to request new messages? (true is default)
+ */
+void ofxSimpleSerial::startContinuesRead(bool writeByte = true)
 {
 	continuesRead = true;
+	bWriteByte = writeByte;
 	sendRequest();
 }
 void ofxSimpleSerial::stopContinuesRead()
@@ -22,7 +28,7 @@ void ofxSimpleSerial::stopContinuesRead()
  */
 void ofxSimpleSerial::sendRequest()
 {
-	writeByte('r');
+	if(bWriteByte) writeByte('r');
 	ofAddListener(ofEvents.update, this, &ofxSimpleSerial::update);
 }
 
@@ -68,4 +74,12 @@ void ofxSimpleSerial::read()
 		// clear the message buffer
 		memset(bytesReturned,0,NUM_BYTES);
 	}
+}
+void ofxSimpleSerial::writeString(string message)
+{
+	unsigned char* chars = (unsigned char*) message.c_str(); // cast from string to unsigned char*
+	int length = message.length();
+	writeBytes(chars,length);
+	
+	
 }
