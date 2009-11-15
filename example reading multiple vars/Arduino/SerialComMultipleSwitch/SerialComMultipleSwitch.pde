@@ -66,10 +66,6 @@ void loop()
       digitalWrite(ledPin, LOW);
     }
     
-    //Serial.print("|");
     Serial.println(",");
-    Serial.flush();
   }
-  
-  delay(100);
 }
