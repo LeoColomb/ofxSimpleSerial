@@ -1,0 +1,18 @@
+<install>
+	
+	<version>0.01</version>
+	<author>Peter Uithoven and Kostas Skenterlis</author>
+	<url></url>
+	
+	<add>
+		
+		<src>
+			<folder name="addons/ofxSimpleSerial/src">
+				<file>../../../addons/ofxSimpleSerial/src/ofxSimpleSerial.h</file>
+				<file>../../../addons/ofxSimpleSerial/src/ofxSimpleSerial.cpp</file>
+			</folder>
+		</src>
+        
+	</add>
+	 
+</install>
