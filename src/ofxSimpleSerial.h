@@ -9,30 +9,29 @@
 using namespace std;
 
 class ofxSimpleSerial : public ofSerial{
-	
-	public:
-	
-		string		message;
-	
-		ofxSimpleSerial();
-		void		sendRequest();
-		void		startContinuesRead(bool writeByte = true);
-		void		stopContinuesRead();
-		void		writeString(string message);
-	
-		ofEvent< string > NEW_MESSAGE;
-	
-	protected:
-	
-		string		messageBuffer;
-		unsigned char bytesReturned[NUM_BYTES];	
-		bool		continuesRead;
-	bool		bWriteByte;
-		void		initSetup();
-		void		update(ofEventArgs & args);
-		void		read();
-		
-};	
 
-#endif	
+public:
 
+	string			message;
+
+	ofxSimpleSerial();
+	void			sendRequest();
+	void			startContinuesRead(bool writeByte = true);
+	void			stopContinuesRead();
+	void			writeString(string message);
+
+	ofEvent< string > NEW_MESSAGE;
+
+protected:
+
+	string			messageBuffer;
+	unsigned char	bytesReturned[NUM_BYTES];
+	bool			continuesRead;
+	bool			bWriteByte;
+	void			initSetup();
+	void			update(ofEventArgs & args);
+	void			read();
+
+};
+
+#endif
