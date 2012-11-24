@@ -1,5 +1,5 @@
 <install>
-	
+    <name>ofxSimpleSerial</name>
 	<version>0.1</version>
 	<author>Leo Colombaro / Peter Uithoven and Kostas Skenterlis</author>
 	<url></url>
@@ -13,6 +13,10 @@
 			</folder>
 		</src>
         
-	</add>
+        <include>
+            <path>../../../addons/ofxSimpleSerial/src</path>
+        </include>
+
+    </add>
 	 
 </install>

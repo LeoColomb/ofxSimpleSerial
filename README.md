@@ -22,4 +22,4 @@ Complete messages exist between `\n`'s, send for example with Arduino with `Seri
 * The addon writes a `r` to the serial connection
 * The other party (Arduino for example) sends an update after it recieves this.
 
-####### This ensures a in-sync transfer of data
+###### This ensures a in-sync transfer of data
