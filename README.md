@@ -1,15 +1,14 @@
-ofxsimpleserial
+ofxSimpleSerial
 ---------------
 
 ### An addon that simplifies the Serial Communication from [openFrameworks](http://www.openframeworks.cc/).
 
 * Automatic message completion 
-
-* Complete messages exist between \n's, send for example with Arduino with Serial.println(). If the complete message cannot be read during one "update" it will keep listening for updates for it to be completed. 
+Complete messages exist between `\n`'s, send for example with Arduino with `Serial.println()`. If the complete message cannot be read during one "update" it will keep listening for updates for it to be completed. 
 
 * Simply use the message property to get the latest complete message.
-* Listen for the NEW_MESSAGE event to get properly notified.
-* Write to the serial connection using a string. 
+* Listen for the `NEW_MESSAGE` event to get properly notified.
+* Write to the serial connection using a string.
 
 ### Contains examples of:
 
@@ -22,7 +21,6 @@ ofxsimpleserial
 
 ### The addon normally uses a simple protocol to read data:
 
-* The addon writes a 'r' to the serial connection
+* The addon writes a `r` to the serial connection
 * The other party (Arduino for example) sends an update after it recieves this. 
-
-(This ensures a in-sync transfer of data) 
+  (This ensures a in-sync transfer of data) 
