@@ -16,8 +16,8 @@ public:
 
 	ofxSimpleSerial();
 	void			sendRequest();
-	void			startContinuesRead(bool writeByte = true);
-	void			stopContinuesRead();
+	void			startContinuousRead(bool writeByte = true);
+	void			stopContinuousRead();
 	void			writeString(string message);
 
 	ofEvent< string > NEW_MESSAGE;
@@ -26,7 +26,7 @@ protected:
 
 	string			messageBuffer;
 	unsigned char	bytesReturned[NUM_BYTES];
-	bool			continuesRead;
+	bool			continuousRead;
 	bool			bWriteByte;
 	void			initSetup();
 	void			update(ofEventArgs & args);
