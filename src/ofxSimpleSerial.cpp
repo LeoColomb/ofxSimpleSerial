@@ -4,28 +4,28 @@ ofxSimpleSerial::ofxSimpleSerial()
 {
 	message = "";
 	messageBuffer = "";
-	continuesRead = false;
+	continuousRead = false;
 	bWriteByte = true;
 }
 
 /*
-* Make ofxSimpleSerial listenen continuesly for new messages.
+* Make ofxSimpleSerial listen continuously for new messages.
 * @param	writeByte		Should I do a writeByte('r') to request new messages? (true is default). 
 *							Disable this when you want to send your own messages.
 */
-void ofxSimpleSerial::startContinuesRead(bool writeByte)
+void ofxSimpleSerial::startContinuousRead(bool writeByte)
 {
-	continuesRead = true;
+	continuousRead = true;
 	bWriteByte = writeByte;
 	sendRequest();
 }
-void ofxSimpleSerial::stopContinuesRead()
+void ofxSimpleSerial::stopContinuousRead()
 {
-	continuesRead = false;
+	continuousRead = false;
 	ofRemoveListener(ofEvents().update, this, &ofxSimpleSerial::update);
 }
 /*
-* Request new data from the device your connected to.
+* Request new data from the device you're connected to.
 */
 void ofxSimpleSerial::sendRequest()
 {
@@ -36,7 +36,7 @@ void ofxSimpleSerial::sendRequest()
 void ofxSimpleSerial::update(ofEventArgs & args)
 {
 	read();
-	if(continuesRead)
+	if(continuousRead)
 		sendRequest();
 }
 
@@ -45,7 +45,7 @@ void ofxSimpleSerial::read()
 	// if we've got new bytes
 	if(available() > 0)
 	{
-		// we wil keep reading until nothing is left
+		// we will keep reading until nothing is left
 		while (available() > 0)
 		{
 			// we'll put the incoming bytes into bytesReturned

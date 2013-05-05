@@ -8,7 +8,7 @@ void testApp::setup()
 	ofBackground(0, 0, 0);
 	
 	serial.setup("/dev/tty.usbserial-A70060V8", 9600);
-	serial.startContinuesRead();
+	serial.startContinuousRead();
 	ofAddListener(serial.NEW_MESSAGE,this,&testApp::onNewMessage);
 	
 	message = "";
