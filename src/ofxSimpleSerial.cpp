@@ -1,7 +1,6 @@
 #include "ofxSimpleSerial.h"
 
-ofxSimpleSerial::ofxSimpleSerial()
-{
+ofxSimpleSerial::ofxSimpleSerial() {
 	message = "";
 	messageBuffer = "";
 	continuousRead = false;
@@ -13,14 +12,12 @@ ofxSimpleSerial::ofxSimpleSerial()
 * @param	writeByte		Should I do a writeByte('r') to request new messages? (true is default). 
 *							Disable this when you want to send your own messages.
 */
-void ofxSimpleSerial::startContinuousRead(bool writeByte)
-{
+void ofxSimpleSerial::startContinuousRead(bool writeByte) {
 	continuousRead = true;
 	bWriteByte = writeByte;
 	sendRequest();
 }
-void ofxSimpleSerial::stopContinuousRead()
-{
+void ofxSimpleSerial::stopContinuousRead() {
 	continuousRead = false;
 	ofRemoveListener(ofEvents().update, this, &ofxSimpleSerial::update);
 }
