@@ -1,7 +1,7 @@
 ofxSimpleSerial
 ---------------
 
-### An addon that simplifies the Serial Communication from [openFrameworks](http://www.openframeworks.cc/).
+**An addon that simplifies the Serial Communication from [openFrameworks](http://www.openframeworks.cc/)**
 
 * Automatic message completion  
 Complete messages exist between `\n`'s, sent for example from Arduino with `Serial.println()`. If the complete message cannot be read during one "update" it will keep listening for updates for it to be completed. 
