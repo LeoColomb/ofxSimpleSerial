@@ -1,4 +1,4 @@
-#include "ofxSimpleSerial.h"
+﻿#include "ofxSimpleSerial.h"
 
 ofxSimpleSerial::ofxSimpleSerial() {
 	message = "";
@@ -9,7 +9,7 @@ ofxSimpleSerial::ofxSimpleSerial() {
 
 /*
 * Make ofxSimpleSerial listen continuously for new messages.
-* @param	writeByte		Should I do a writeByte('r') to request new messages? (true is default). 
+* @param	writeByte		Should I do a writeByte('r') to request new messages? (true is default).
 *							Disable this when you want to send your own messages.
 */
 void ofxSimpleSerial::startContinuousRead(bool writeByte) {
@@ -26,21 +26,21 @@ void ofxSimpleSerial::stopContinuousRead() {
 */
 void ofxSimpleSerial::sendRequest()
 {
-	if(bWriteByte) writeByte('r');
+	if (bWriteByte) writeByte('r');
 	ofAddListener(ofEvents().update, this, &ofxSimpleSerial::update);
 }
 
 void ofxSimpleSerial::update(ofEventArgs & args)
 {
 	read();
-	if(continuousRead)
+	if (continuousRead)
 		sendRequest();
 }
 
 void ofxSimpleSerial::read()
 {
 	// if we've got new bytes
-	if(available() > 0)
+	if (available() > 0)
 	{
 		// we will keep reading until nothing is left
 		while (available() > 0)
@@ -48,34 +48,34 @@ void ofxSimpleSerial::read()
 			// we'll put the incoming bytes into bytesReturned
 			readBytes(bytesReturned, NUM_BYTES);
 
-			// if we find the splitter we put all the buffered messages 
-			//   in the final message, stop listening for more data and 
+			// if we find the splitter we put all the buffered messages
+			//   in the final message, stop listening for more data and
 			//   notify a possible listener
-			// else we just keep filling the buffer with incoming bytes. 
-			if(*bytesReturned == '\n')
+			// else we just keep filling the buffer with incoming bytes.
+			if (*bytesReturned == '\n')
 			{
 				message = messageBuffer;
 				messageBuffer = "";
 				ofRemoveListener(ofEvents().update, this, &ofxSimpleSerial::update);
-				ofNotifyEvent(NEW_MESSAGE,message,this);
+				ofNotifyEvent(NEW_MESSAGE, message, this);
 
 				break;
 			}
-			else 
+			else
 			{
-				if(*bytesReturned != '\r')
+				if (*bytesReturned != '\r')
 					messageBuffer += *bytesReturned;
 			}
 			//cout << "  messageBuffer: " << messageBuffer << "\n";
 		}
 
 		// clear the message buffer
-		memset(bytesReturned,0,NUM_BYTES);
+		memset(bytesReturned, 0, NUM_BYTES);
 	}
 }
 void ofxSimpleSerial::writeString(string message)
 {
 	unsigned char* chars = (unsigned char*) message.c_str(); // cast from string to unsigned char*
 	int length = message.length();
-	writeBytes(chars,length);
+	writeBytes(chars, length);
 }

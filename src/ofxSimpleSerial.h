@@ -1,4 +1,4 @@
-#ifndef _OFX_SIMPLE_SERIAL
+﻿#ifndef _OFX_SIMPLE_SERIAL
 #define _OFX_SIMPLE_SERIAL
 
 #include "ofSerial.h"
@@ -8,8 +8,7 @@
 
 using namespace std;
 
-class ofxSimpleSerial: public ofSerial{
-
+class ofxSimpleSerial : public ofSerial{
 public:
 	string message;
 
@@ -29,7 +28,6 @@ protected:
 	void			initSetup();
 	void			update(ofEventArgs & args);
 	void			read();
-
 };
 
 #endif
